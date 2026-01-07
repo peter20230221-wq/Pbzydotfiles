@@ -10,13 +10,13 @@
         "clock",
     ],
     "modules-center": [
+   "hyprland/window",
     ],
     "modules-right": [
         "tray",
         "memory",
         "disk",
         "cpu",
-        "network",
         "backlight",
         "wireplumber",
         "battery",
@@ -65,20 +65,6 @@
         "format-alt": "  {:%a, %d %b %Y}",
         "format": "  {:%I:%M %p}"
     },
-    "network": {
-        "format-wifi" : "{icon}",
-        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
-        "format-ethernet": "󰀂",
-  "format-alt" : "󱛇",
-        "format-disconnected" : "󰖪",
-  "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-  "tooltip-format-disconnected": "Disconnected",
-  "on-click": "~/.config/rofi/wifi/wifi.sh &",
-        "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
-  "interval": 5,
-  "nospacing": 1,
-    },
 
 
 
@@ -87,8 +73,10 @@
 "cpu": {
         "interval": 5,
         "format": "󰍛 {}%",
-        "max-length": 10
-    },
+        "max-length": 10,
+        "interval": 1,
+
+},
 
 "disk": {
         "interval": 5,
@@ -157,7 +145,7 @@
 "custom/logo": {
         "format": "  ",
         "tooltip": false,
-        "on-click": "fuzzel &"
+        "on-click": "wofi &"
     },
 
 "backlight":{
@@ -175,4 +163,8 @@
     "return-type": "json"
 },
 
+"hyprland/window": {
+    "format": "{class}",          // 只显示应用类名，例如：firefox、kitty、code-oss 等
+    "separate-outputs": true      // 可选：每个显示器显示自己焦点窗口的类名
+},
 }
