@@ -1,0 +1,21 @@
+#!/bin/bash
+
+entries="截图到剪贴板\n截图并编辑"
+
+selected=$(printf "%b" "$entries" | \
+  wofi --dmenu \
+       --cache-file /dev/null \
+       --width 250 \
+       --height 320 \
+       --prompt "截图菜单" \
+       --style ~/.config/wofi/style.css)
+
+case "$selected" in
+  截图到剪贴板)
+    grim -g "$(slurp)" - | wl-copy
+    ;;
+  截图并编辑)
+    gradia --screenshot
+    ;;
+esac
+
